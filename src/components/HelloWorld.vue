@@ -1,5 +1,14 @@
 <script setup>
-import { ref, reactive, computed, watch } from "vue";
+import {
+  ref,
+  reactive,
+  computed,
+  watch,
+  onBeforeMount,
+  onMounted,
+  onUnmounted,
+  onBeforeUnmount,
+} from "vue";
 
 const count = ref(0);
 const stringInput = ref("hallo");
@@ -31,6 +40,19 @@ watch(
     console.log(newval, oldval);
   }
 );
+
+// onBeforeMount(() => {
+//   console.log("onBeforeMount");
+// });
+// onMounted(() => {
+//   console.log("onMounted");
+// });
+// onBeforeUnmount(() => {
+//   console.log("onBeforeUnmount");
+// });
+// onUnmounted(() => {
+//   console.log("onUnmounted");
+// });
 </script>
 
 <template>
