@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, computed, watch } from "vue";
 
 const count = ref(0);
 const stringInput = ref("hallo");
@@ -16,6 +16,21 @@ const increase = () => {
 const decrease = (value) => {
   count.value -= value;
 };
+
+const largerThan = computed(() => {
+  if (state.count > 5) {
+    return "Larger";
+  } else {
+    return "Smaller";
+  }
+});
+
+watch(
+  () => state.count,
+  (newval, oldval) => {
+    console.log(newval, oldval);
+  }
+);
 </script>
 
 <template>
@@ -29,6 +44,9 @@ const decrease = (value) => {
   <div>
     {{ state.count }}
     {{ state.name }}
+  </div>
+  <div>
+    {{ largerThan }}
   </div>
 </template>
 
