@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import Modal from "./components/Modal.vue";
+</script>
 
 <template>
   <div>
@@ -9,11 +11,18 @@
     </ul>
   </div>
   <router-view></router-view>
+  <div class="wrapper">
+    <Modal />
+  </div>
+
   <!-- <HelloWorld /> -->
 </template>
 
 <style scoped>
 a {
   padding: 10px;
+}
+.wrapper {
+  position: relative;
 }
 </style>
