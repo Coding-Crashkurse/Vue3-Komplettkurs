@@ -1,5 +1,9 @@
 <script setup>
+import { ref } from "vue";
 import Modal from "./components/Modal.vue";
+import ModalDark from "./components/ModalDark.vue";
+
+const darkMode = ref(false);
 </script>
 
 <template>
@@ -12,7 +16,11 @@ import Modal from "./components/Modal.vue";
   </div>
   <router-view></router-view>
   <div class="wrapper">
-    <Modal />
+    <label for="darkmode">Darkmode?</label>
+    <input type="checkbox" v-model="darkMode" />
+    <!-- <p>{{ darkMode }}</p> -->
+    <!-- <component :is="ModalDark"></component> -->
+    <component :is="darkMode ? ModalDark : Modal"></component>
   </div>
 
   <!-- <HelloWorld /> -->
@@ -24,5 +32,7 @@ a {
 }
 .wrapper {
   position: relative;
+  padding: 20px;
+  border: 1px solid black;
 }
 </style>
