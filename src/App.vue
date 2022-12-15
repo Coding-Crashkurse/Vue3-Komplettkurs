@@ -14,7 +14,13 @@ const darkMode = ref(false);
       <RouterLink to="/about">About</RouterLink>
     </ul>
   </div>
-  <router-view></router-view>
+  <!-- Keep alive -->
+  <router-view v-slot="{ Component }">
+    <KeepAlive>
+      <component :is="Component" />
+    </KeepAlive>
+  </router-view>
+
   <div class="wrapper">
     <label for="darkmode">Darkmode?</label>
     <input type="checkbox" v-model="darkMode" />

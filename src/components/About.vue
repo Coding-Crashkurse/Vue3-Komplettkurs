@@ -55,6 +55,20 @@ provide("propvalue", propvalue);
     <p>{{ store.tooOld }}</p>
     <!-- <Child name="Unser prop" /> -->
     <!-- <Child :name="propvalue" @changeString="changeIt" /> -->
-    <Child @changeString="changeIt" />
+    <!-- <Child @changeString="changeIt" /> -->
+    <Child @changeString="changeIt">
+      <template v-slot:slot1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem,
+          quos.
+        </p>
+      </template>
+      <template #slot2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem,
+          quos.
+        </p>
+      </template>
+    </Child>
   </div>
 </template>
